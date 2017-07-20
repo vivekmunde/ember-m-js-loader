@@ -1,17 +1,24 @@
 {
   "name": "ember-m-js-loader",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Lazy loading javascript using simple Ember Service",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "ember-js-loader",
+    "ember-js-lazy-loader",
+    "ember-js-load-on-demand"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Vivek Munde",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "homepage": "https://github.com/vivekmunde/ember-m-js-loader",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivekmunde/ember-m-js-loader.git"
+  },
   "scripts": {
     "build": "ember build",
     "start": "ember server",
