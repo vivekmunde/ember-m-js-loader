@@ -1,4 +1,5 @@
-# ember-m-js-loader
+ember-m-js-loader
+==============================================================================
 
 This [Ember.js](https://emberjs.com/) addon helps load the js file(s) on demand, i.e. lazy loading, inside the `<script>` tag in the `document` `<body>` using the service `m-js-loader` .
 
@@ -44,25 +45,36 @@ The service `m-js-loader` caches the `src`s loaded to avoid injecting the same J
 
 The service inserts a `<script>` tag which as good as having it hardcoded at the time of html load. So no [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS) issue.
 
-## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-m-js-loader`
-* `npm install`
+Compatibility
+------------------------------------------------------------------------------
 
-## Running
+* Ember.js v3.12 or above
+* Ember CLI v2.13 or above
+* Node.js v10 or above
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200), which loads the [bootstrap](https://getbootstrap.com) JS lazily.
 
-## Running Tests
+Installation
+------------------------------------------------------------------------------
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+```
+ember install ember-m-js-loader
+```
 
-## Building
 
-* `ember build`
+Usage
+------------------------------------------------------------------------------
 
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+[Longer description of how to use the addon in apps.]
+
+
+Contributing
+------------------------------------------------------------------------------
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
+
+License
+------------------------------------------------------------------------------
+
+This project is licensed under the [MIT License](LICENSE.md).
