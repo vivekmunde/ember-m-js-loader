@@ -29,15 +29,23 @@ export default Ember.Service.extend({
     // @private
     _loadJs(attr) {
         return new Ember.RSVP.Promise((resolve, reject) => {
-            Ember.$("<script>")
-                .appendTo("body")
-                .on('load', () => {
-                    resolve();
-                })
-                .on('error', () => {
-                    reject();
-                })
-                .attr(this._getScriptAttr(attr));
+            const script = document.createElement("script");
+
+            document.body.appendChild(script);
+
+            script.addEventListener('load', () => {
+                resolve();
+            });
+
+            script.addEventListener('error', () => {
+                reject();
+            });
+
+            const scriptAttrs = this._getScriptAttr(attr);
+            Object.keys(scriptAttrs)
+                .forEach(key => {
+                    script.setAttribute(key, scriptAttrs[key]);
+                });
         });
     },
 
