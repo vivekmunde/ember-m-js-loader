@@ -129,10 +129,11 @@ sinonTest('should load js in a <script> tag in document <body>', function (asser
 
   return service._loadJs(attr).then(() => {
     assert.ok(getScriptAttrStub.calledWith(attr), '_getScriptAttr was called');
-    const $script = Ember.$('body script').last();
-    assert.equal($script.attr('type'), 'text/javascript', '<script> had type');
-    assert.equal($script.attr('src'), '../script.js', '<script> had src');
-    assert.equal($script.attr('crossorigin'), 'anonymous', '<script> had crossorigin');
+    const scriptTags = document.getElementsByTagName('script');
+    const scriptTag = scriptTags.item(scriptTags.length - 1);
+    assert.equal(scriptTag.getAttribute('type'), 'text/javascript', '<script> had type');
+    assert.equal(scriptTag.getAttribute('src'), '../script.js', '<script> had src');
+    assert.equal(scriptTag.getAttribute('crossorigin'), 'anonymous', '<script> had crossorigin');
   });
 });
 
@@ -155,7 +156,9 @@ sinonTest('should handle error during js loading in a <script> tag in document <
   });
 
   return service._loadJs(attr).then(() => { }, () => {
-    !assert.equal(Ember.$('body script').last().attr('src'), '/assets/404-script.js');
+    const scriptTags = document.getElementsByTagName('script');
+    const scriptTag = scriptTags.item(scriptTags.length - 1);
+    !assert.equal(scriptTag.getAttribute('src'), '/assets/404-script.js');
   });
 });
 
