@@ -1,13 +1,14 @@
 import { moduleFor, test } from 'ember-qunit';
 import sinonTest from 'ember-sinon-qunit/test-support/test';
-import Ember from 'ember';
+import { A } from '@ember/array';
+import { Promise } from 'rsvp';
 
 moduleFor('service:m-js-loader', 'Unit | Service | m js loader', {
-  unit: true,
+  integration: true,
 
   beforeEach() {
     let service = this.subject();
-    service.set('_cache', Ember.A());
+    service.set('_cache', A());
   }
 });
 
@@ -215,7 +216,7 @@ sinonTest('should load js', function (assert) {
     _isValidAttrStub = this.stub(service, '_isValidAttr').returns(true),
     _isCachedStub = this.stub(service, '_isCached').returns(false),
     _loadJsStub = this.stub(service, '_loadJs').returns(
-      new Ember.RSVP.Promise((resolve) => {
+      new Promise((resolve) => {
         resolve();
       })
     ),
@@ -243,7 +244,7 @@ sinonTest('should handle error dusing js load', function (assert) {
     _isValidAttrStub = this.stub(service, '_isValidAttr').returns(true),
     _isCachedStub = this.stub(service, '_isCached').returns(false),
     _loadJsStub = this.stub(service, '_loadJs').returns(
-      new Ember.RSVP.Promise((resolve, reject) => {
+      new Promise((resolve, reject) => {
         reject();
       })
     ),
