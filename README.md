@@ -3,6 +3,9 @@ ember-m-js-loader
 
 This [Ember.js](https://emberjs.com/) addon helps load the js file(s) on demand, i.e. lazy loading, inside the `<script>` tag in the `document` `<body>` using the service `m-js-loader` .
 
+### Compatibility
+Ember@^3.0.0
+
 ### Deferred Loading of JS
 
 The ambitious SPAs need more than one JS resources (external libraries) and some of these JS resources can be more functionality centric and may not be required to get loaded on the initial screen or may be required only for few of screens. The loading of scripts that are not necessary for the initial page load can be deferred until after the initial load. Doing so can help reduce resource contention and improve performance.
